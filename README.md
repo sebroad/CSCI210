@@ -14,20 +14,35 @@ Python Web Development with Django. Forcier, Bissex, and Chun. 2009. Addison-Wes
 
 # Approximate Schedule
 Week 01: Introduction to Linux
+
 Week 02: Review of Python; Intro to Django and installation
+
 Week 03: Django Quickstart; Running a web-application
+
 Week 04: Django development; Network programming
+
 Week 05: Django development; RESTful webservice??
+
 Week 06: Linux-Apache-MySQL-Python/pHp/Perl = LAMP; Installation notes
+
 Week 07: Linux-Apache-SQLite3-Django = LASD?; Basic database programming; Mid-term Exam
+
 BREAK
+
 Week 08: Content Management System; Setup Flatpages
+
 Week 09: Content Management System; Beyond Flatpages
+
 Week 10: Google App Engine; setup and tutorial
+
 Week 11: LAMP on Google Apps; RESTful web services
+
 Week 12: RESTFul web service; server development
+
 Week 13: RESTful web service; client development
+
 Week 14: Finalize projects
+
 FINAL EXAM
 
 # Assignments
