@@ -1,0 +1,26 @@
+1.   django-admin startproject mysite
+2.   django-admin startapp blog
+3.   mysite/settings.py
+	a. add 'blog' to APPS
+	b. add 'blog' to TEMPLATES[0]['DIRS']
+4.   blog/models.py
+	a. add 'BlogPost' class
+5.   blog/admin.py (has to import blog.models)
+	a. add 'BlogPostAdmin' class
+	b. register the model BlogPost, with administration from BlogPostAdmin
+6.   django-admin makemigrations
+7.   django-admin migrate
+8.   django-admin createsuperuser
+9.  django-admin runserver
+10.  test out the localhost:8000/admin portal + add some posts
+11.  add templates folder in the blog folder
+12.  create an archive.html file in the templates folder
+13.  modify views.py to create function to execute the view
+	a. load data?
+	b. load template
+	c. map data
+	d. render response
+14.  create and modify blog/urls.py
+	a. add urlpatterns list that maps an empty request to the archive view
+15.  forward map mysite/urls.py to blog/urls.py
+	a. add 'blog' url template redirecting to blog.urls (DON'T use mysite.blog)
