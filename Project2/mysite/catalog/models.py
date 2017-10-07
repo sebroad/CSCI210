@@ -7,6 +7,7 @@ from django.db import models
 class Author(models.Model):
 	name = models.CharField(max_length=100)
 	dead = models.BooleanField(default=False)
+	email = models.EmailField(max_length=100, default='')
 	def __unicode__(self):
 		return unicode(self.name)
 

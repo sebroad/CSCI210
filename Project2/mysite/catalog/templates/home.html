@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block titles %}
+{% for book in books %}
+<div class="book"><a href="titles/{{ book.title }}">{{ book.title }}</a></div>
+{% endfor %}
+{% endblock %}
+{% block authors %}
+{% for author in authors %}
+<div class="author"><a href="authors/{{ author.name }}">{{ author.name }}</a></div>
+{% endfor %}
+{% endblock %}
