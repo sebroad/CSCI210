@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+{% block content %}
+{% for book in books %}
+<div class="book">
+<h2>{{ book.title }}</h2>
+</div>
+{% for author in book.author.all %}
+<div class="author">
+<h3><a href="/authors/{{ author.name }}">{{ author.name }}</a></h3>
+<p>{{ author.email }}</p>
+</div>
+{% endfor %}
+{% endfor %}
+{% endblock %}

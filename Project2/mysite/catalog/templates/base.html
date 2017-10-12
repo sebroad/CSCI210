@@ -1,13 +1,5 @@
-<html>
-<head>
-<style type="text/css">
-body {margin-left: 400px; margin-right: 400px; margin-top: 200px; }
-div {background-color: LightBlue; padding: 5px; font-size: 24pt; }
-table {background-color: AliceBlue;}
-td {; }
-</style>
-</head>
-<body>
+{% extends "page.html" %}
+{% block content %}
 <table border="0">
 <tr><td width="20%"><h1>Titles</h1></td><td width="20%"><h1>Authors</h1></td></tr>
 <tr>
@@ -20,5 +12,4 @@ td {; }
 {% endblock %}
 </td>
 </table>
-</body>
-</html>
+{% endblock %}

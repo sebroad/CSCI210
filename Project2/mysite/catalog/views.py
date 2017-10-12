@@ -9,19 +9,25 @@ from .models import *
 def home(request):
 	books = Book.objects.all()
 	authors = Author.objects.all()
-	for book in books:
-		print book.title
 	t = loader.get_template('home.html')
 	c = dict({'books': books, 'authors': authors})
 	return HttpResponse(t.render(c))
 	
 def titles(request):
 	title = request.path.replace('/titles/', '')
-	
-	return HttpResponse(title)
+	books = Book.objects.filter(title__contains=title)
+	t = loader.get_template('titles.html')
+	c = dict({'books': books})
+	return HttpResponse(t.render(c))
 	
 def authors(request):
-	return HttpResponse()
+	author = request.path.replace('/authors/', '')
+	authors = Author.objects.filter(name__contains = author)
+	books = Book.objects.filter(author__name__contains = author)
+	t = loader.get_template('authors.html')
+	c = dict({'books': books, 'authors': authors})
+	return HttpResponse(t.render(c))
+
 	
 def query(request):
 	return HttpResponse()

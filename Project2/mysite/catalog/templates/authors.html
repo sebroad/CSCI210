@@ -1,0 +1,14 @@
+{% extends "page.html" %}
+{% block content %}
+{% for author in authors %}
+<div class="author">
+<h2>{{ author.name }} {% if author.dead %}(deceased){% endif %}</h2>
+<p><a href="mailto:{{ author.email }}">{{ author.email }}</a></p>
+</div>
+{% for book in books %}
+<div class="book">
+<h3><a href="/titles/{{ book.title }}">{{ book.title }}</a></h3>
+</div>
+{% endfor %}
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,18 @@
+<html>
+<head>
+{% load static %}
+<style type="text/css">
+body { background-image: url("{% static "catalog/book.jpg" %}"); background-color: White; }
+div.main { margin: 200px; }
+div.book { padding: 5px; font-size: 18pt; background-color: AliceBlue; }
+div.author { padding: 5px; font-size: 18pt; background-color: Lavender; }
+td { vertical-align: top; }
+</style>
+</head>
+<body>
+<div class="main">
+{% block content %}
+{% endblock %}
+</div>
+</body>
+</html>
