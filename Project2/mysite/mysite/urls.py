@@ -19,8 +19,9 @@ from catalog import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^titles/', views.titles),
+	url(r'^titles/(?P<title>.*)/', views.titles),
+	url(r'^titles/(?P<title>.*)', views.titles),
 	url(r'^authors/', views.authors),
-	url(r'^query/v1/', views.query),
+	url(r'^query/v1?', views.query),
 	url(r'^$', views.home),
 ]

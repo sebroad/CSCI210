@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
 from django.shortcuts import loader, render
 from django.http import HttpResponse
 from .models import *
@@ -13,8 +14,7 @@ def home(request):
 	c = dict({'books': books, 'authors': authors})
 	return HttpResponse(t.render(c))
 	
-def titles(request):
-	title = request.path.replace('/titles/', '')
+def titles(request, title):
 	books = Book.objects.filter(title__contains=title)
 	t = loader.get_template('titles.html')
 	c = dict({'books': books})
@@ -30,4 +30,17 @@ def authors(request):
 
 	
 def query(request):
-	return HttpResponse()
+	params = request.GET
+	data = dict()
+	if 'title' in params:
+		books = Book.objects.filter(title__contains=params['title'])
+		data['books'] = list()
+		for b in books:
+			book = dict()
+			book['title']=b.title
+			book['pubdate']=str(b.pubdate)
+			book['publisher']=b.publisher
+			
+			data['books'].append(book)
+			
+	return HttpResponse(json.dumps(data))

@@ -2,17 +2,24 @@
 <head>
 {% load static %}
 <style type="text/css">
-body { background-image: url("{% static "catalog/book.jpg" %}"); background-color: White; }
+body { background-image: url("https://static.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg"); background-color: White; }
 div.main { margin: 200px; }
 div.book { padding: 5px; font-size: 18pt; background-color: AliceBlue; }
 div.author { padding: 5px; font-size: 18pt; background-color: Lavender; }
 td { vertical-align: top; }
+h1 { background-color: White; }
+div.form { background-color: White; }
 </style>
 </head>
 <body>
 <div class="main">
 {% block content %}
 {% endblock %}
+{% csrf_token %}
+<form action="/" method="post">
+  <input size="50" type="text" name="searchstring" value="">
+  <input type="submit" value="Submit">
+</form> 
 </div>
 </body>
 </html>
