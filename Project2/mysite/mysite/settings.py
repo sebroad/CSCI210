@@ -40,6 +40,12 @@ INSTALLED_APPS = [
 	'catalog'
 ]
 
+try:
+	import mod_wsgi
+	INSTALLED_APPS.append('mod_wsgi.server')
+except:
+	pass
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
