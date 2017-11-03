@@ -16,9 +16,8 @@ def home(request):
 		city = 'xxx'
 		state = 'XX'
 	zips = ZipCode.objects.filter(zip__startswith=zip)
-	print len(zips)
 	cities = City.objects.filter(name__contains=city)
 	states = State.objects.filter(abbr=state)
 	t = loader.get_template('home.html')
-	c = dict({'zips': zips, 'states': [], 'cities': []})
+	c = dict({'zips': zips, 'states': states, 'cities': cities})
 	return HttpResponse(t.render(c))
