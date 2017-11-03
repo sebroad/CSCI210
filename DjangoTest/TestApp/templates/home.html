@@ -1,0 +1,24 @@
+{% extends "threecol.html" %}
+{% block zipcodes %}
+{% for zip in zips %}
+<div class="zip">
+<span class="ziplink"><a href="/zip/{{ zip.zip }}">{{ zip.zip }}</a></span>
+<span class="citylink"><a href="/city/{{ zip.city.name }}">{{ zip.city.name }}</a></span>
+<span class="statelink"><a href="/state/{{ zip.state.name }}">{{ zip.state.name }}</a></span>
+</div>
+{% endfor %}
+{% endblock %}
+{% block states %}
+{% for state in states %}
+<div class="state">
+<span class="statelink"><a href="/state/{{ state.name }}">{{ state.name }}</a></span>
+</div>
+{% endfor %}
+{% endblock %}
+{% block cities %}
+{% for city in cities %}
+<div class="city">
+<span class="citylink"><a href="/city/{{ city.name }}">{{ city.name }}</a></span>
+</div>
+{% endfor %}
+{% endblock %}
