@@ -7,17 +7,56 @@ from TestApp.models import *
 
 # Create your views here.
 def home(request):
+	
 	if 'search' in request.GET:
-		zip = request.GET['search']
-		city = request.GET['search']
-		state = request.GET['search']
+		search = request.GET['search']
 	else:
-		zip = '000'
-		city = 'xxx'
-		state = 'XX'
-	zips = ZipCode.objects.filter(zip__startswith=zip)
-	cities = City.objects.filter(name__contains=city)
-	states = State.objects.filter(abbr=state)
-	t = loader.get_template('home.html')
-	c = dict({'zips': zips, 'states': states, 'cities': cities})
+		search = 'xxx'
+	
+	zips = ZipCode.objects.filter(zip__startswith=search)
+	if len(zips) == 0:
+		zips = ZipCode.objects.filter(state__abbr=search)
+	if len(zips) == 0:
+		zips = ZipCode.objects.filter(state__name=search)
+	if len(zips) == 0:
+		zips = ZipCode.objects.filter(city__name__contains=search)
+		
+	c = dict({'zips': zips})
+
+	t = loader.get_template('zip.html')
+	
 	return HttpResponse(t.render(c))
+
+def zip(request):
+	
+	zip = request.path.replace('/zip/','')
+	
+	zips = ZipCode.objects.filter(zip=zip)
+
+	t = loader.get_template('zip.html')
+	c = dict({'zips': zips})
+	
+	return HttpResponse(t.render(c))
+
+def city(request):
+	
+	city = request.path.replace('/city/','')
+	
+	zips = ZipCode.objects.filter(city__name__startswith=city)
+
+	t = loader.get_template('zip.html')
+	c = dict({'zips': zips})
+	
+	return HttpResponse(t.render(c))
+
+def state(request):
+	
+	state = request.path.replace('/state/','')
+	
+	zips = ZipCode.objects.filter(state__abbr=state)
+
+	t = loader.get_template('zip.html')
+	c = dict({'zips': zips})
+	
+	return HttpResponse(t.render(c))
+

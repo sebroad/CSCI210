@@ -19,5 +19,8 @@ import TestApp.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'^$', TestApp.views.home), 
+	url(r'^zip/', TestApp.views.zip), 
+	url(r'^city/', TestApp.views.city), 
+	url(r'^state/', TestApp.views.state), 
+	url(r'^$', TestApp.views.home), 	
 ]

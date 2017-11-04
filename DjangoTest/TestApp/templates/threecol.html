@@ -1,12 +1,15 @@
 {% extends "page.html" %}
 {% block content %}
-<table border="0">
+<table border="0" width="100%">
 <tr>
+	<td width="20%"></td>
 	<td width="20%"><h1>Zip Codes</h1></td>
 	<td width="20%"><h1>Cities</h1></td>
 	<td width="20%"><h1>States</h1></td>
+	<td width="20%"></td>
 </tr>
 <tr>
+<td></td>
 <td>
 {% block zipcodes %}
 {% endblock %}
@@ -19,5 +22,6 @@
 {% block states %}
 {% endblock %} 
 </td>
+<td></td>
 </table>
 {% endblock %}
