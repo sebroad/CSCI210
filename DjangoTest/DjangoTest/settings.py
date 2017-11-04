@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 try:
 	import modwsgi
-	INSTALLED_APPS.append('modwsgi.server')
+	INSTALLED_APPS.append('mod_wsgi.server')
 except:
 	pass
 	
