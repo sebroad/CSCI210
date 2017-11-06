@@ -25,7 +25,7 @@ SECRET_KEY = '=xi-m2zvcit@z6jez&+=$os@fj-day4k4wvq9gq$!o#j8txqrn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 ]
 
 try:
-	import modwsgi
+	import mod_wsgi
 	INSTALLED_APPS.append('mod_wsgi.server')
 except:
 	pass
