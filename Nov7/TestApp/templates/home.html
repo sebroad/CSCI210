@@ -1,0 +1,14 @@
+<table>
+<tr>
+<td>Title</td>
+<td>Artist</td>
+<td>Album</td>
+</tr>
+{% for song in songs %}
+<tr>
+<td>{{ song.title }}</td>
+<td>{{ song.artist }}</td>
+<td>{{ song.album }}</td>
+</tr>
+{% endfor %}
+</table>
